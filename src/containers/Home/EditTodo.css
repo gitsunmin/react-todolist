@@ -1,4 +1,4 @@
-.EditUser-modal-mask {
+.EditTodo-modal-mask {
   position: fixed;
   z-index: 9999;
   right: 0;
@@ -8,11 +8,11 @@
   background: rgba(0,0,0,.5);
   display: table;
 }
-.EditUser-modal-wrapper {
+.EditTodo-modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
-.EditUser-modal-container {
+.EditTodo-modal-container {
   width: 300px;
   margin: 0 auto;
   padding: 20px 30px;

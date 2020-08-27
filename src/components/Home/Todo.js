@@ -1,28 +1,28 @@
 import React, {Component} from 'react'
-import './User.css'
+import './Todo.css'
 
-class User extends Component {
+class Todo extends Component {
   static defaultProps = {
     data: {
       id: 0,
-      name: 'USER NAME',
+      title: 'USER NAME',
       onDelete: () => console.log('NOP'),
       onEdit: () => console.log('NOP'),
     }
   }
   onEdit = e => {
-    this.props.onEdit(this.props.data)
+    this.props.onEdit(this.props.data);
   }
   onDelete = e => {
-    this.props.onDelete(this.props.data)
+    this.props.onDelete(this.props.data);
   }
   render() {
-    const {id, name} = this.props.data
+    const { title } = this.props.data;
     return (
-      <div className="User">
-        {/* <div className="User-id">{id}</div> */}
-        <div className="User-name">{name}</div>
-        <div className="User-controls">
+      <div className="Todo">
+        {/* <div className="Todo-id">{id}</div> */}
+        <div className="Todo-title">{title}</div>
+        <div className="Todo-controls">
           <ul>
             <li><button onClick={this.onEdit}>수정</button></li>
             <li><button onClick={this.onDelete}>삭제</button></li>
@@ -34,4 +34,4 @@ class User extends Component {
   }
 }
 
-export default User
+export default Todo

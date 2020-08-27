@@ -2,7 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import Home from '../Home';
 import Completion from '../Completion';
-import Topics from '../Topics';
+// import Topics from '../Topics';
 
 const style = {
   padding: '0 15px 15px 10px'

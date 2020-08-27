@@ -1,23 +1,23 @@
 import React from 'react'
-import User from './User'
+import Todo from './Todo'
 
-class UserList extends React.Component {
+class TodoList extends React.Component {
   style = {
     marginBottom: '16px'
   }
   componentDidMount() {
     this.props.fetch()
   }
-  onEdit = user => {
-    this.props.onEdit(user)
+  onEdit = todo => {
+    this.props.onEdit(todo)
   }
-  onDelete = user => {
-    this.props.onDelete(user)
+  onDelete = todo => {
+    this.props.onDelete(todo)
   }
   render () {
     const {isFetching} = this.props
-    const list = this.props.users.map(user => (
-      <User data={user} key={user.id} onEdit={this.onEdit} 
+    const list = this.props.todos.map(todo => (
+      <Todo data={todo} key={todo.id} onEdit={this.onEdit} 
         onDelete={this.onDelete}/>
     ))
     return (
@@ -29,4 +29,4 @@ class UserList extends React.Component {
   }
 }
 
-export default UserList
+export default TodoList

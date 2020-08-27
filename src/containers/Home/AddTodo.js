@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addUser } from '../../reducers/user'
+import { addTodo } from '../../reducers/todo'
 
-class AddUser extends React.Component {
+class AddTodo extends React.Component {
   state = {
     inputName: ''
   }
@@ -14,7 +14,7 @@ class AddUser extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     const {inputName} = this.state
-    this.props.dispatch(addUser(inputName))
+    this.props.dispatch(addTodo(inputName))
     this.setState({
       inputName: ''
     });
@@ -22,7 +22,7 @@ class AddUser extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input type="text" name="userName" placeholder="추가할 이름을 입력하세요"
+        <input type="text" title="todoName" placeholder="추가할 할일을 입력하세요"
           autoComplete="off"
           onChange={this.onChnageInput}
           value={this.state.inputName} />
@@ -32,4 +32,4 @@ class AddUser extends React.Component {
   }
 }
 
-export default connect()(AddUser)
+export default connect()(AddTodo)

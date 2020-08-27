@@ -1,36 +1,36 @@
 import {takeEvery, call, put} from 'redux-saga/effects'
 import {
   FETCH_USER, RECEIVE_USER, REQEUST_USER, ADD_USER, EDIT_USER
-} from '../reducers/user'
+} from '../reducers/todo'
 import * as api from '../api'
 
-function* takeFetchUser() {
-  yield takeEvery(FETCH_USER, fetchUserAsync)
+function* takeFetchTodo() {
+  yield takeEvery(FETCH_USER, fetchTodoAsync)
 }
-function* fetchUserAsync(action) {
+function* fetchTodoAsync(action) {
   yield put({type: REQEUST_USER})
-  const users = yield call(api.fetchUser)
-  yield put({type: RECEIVE_USER, users})
+  const todos = yield call(api.fetchTodo)
+  yield put({type: RECEIVE_USER, todos})
 }
 
-function* takeAddUser() {
+function* takeAddTodo() {
   yield takeEvery(ADD_USER, function* (action) {
-    yield call(api.createUser, {name: action.name})
-    yield fetchUserAsync()
+    yield call(api.createTodo, {title: action.title})
+    yield fetchTodoAsync()
   }) 
 }
 
-function* takeEditUser() {
+function* takeEditTodo() {
   yield takeEvery(EDIT_USER, function* (action) {
-    yield call(api.updateUser, {...action.user})
-    yield fetchUserAsync()
+    yield call(api.updateTodo, {...action.todo})
+    yield fetchTodoAsync()
   }) 
 }
 
 export default function* rootSaga() {
   yield [
-    takeFetchUser(),
-    takeAddUser(),
-    takeEditUser()
+    takeFetchTodo(),
+    takeAddTodo(),
+    takeEditTodo()
   ]
 }

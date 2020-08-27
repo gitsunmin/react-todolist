@@ -1,43 +1,43 @@
-let users = [
-  {id: 1, name: 'Alice'},
-  {id: 2, name: 'Beck'},
-  {id: 3, name: 'Chris'},
+let todos = [
+  {id: 1, title: 'Alice'},
+  {id: 2, title: 'Beck'},
+  {id: 3, title: 'Chris'},
 ];
 
 let delay = 300
 
-export const fetchUser = () => {
-  console.log('api fetchUsers');
+export const fetchTodo = () => {
+  console.log('api fetchTodos');
   return new Promise(resolve => {
-    setTimeout(_=> resolve(users), delay)
+    setTimeout(_=> resolve(todos), delay)
   })
 }
 
-export const createUser = ({name}) => {
-  console.log('api createUser', name)
+export const createTodo = ({title}) => {
+  console.log('api createTodo', title)
   return new Promise(resolve => {
-    users.push({
-      id: users[users.length - 1].id + 1,
-      name
+    todos.push({
+      id: todos[todos.length - 1].id + 1,
+      title
     })
-    setTimeout(_=>resolve(users), delay) 
+    setTimeout(_=>resolve(todos), delay) 
   })
 }
 
-export const deleteUser = ({id}) => {
+export const deleteTodo = ({id}) => {
   return new Promise(resolve => {
-    users = users.filter(u => u.id !== id)
-    setTimeout(_=> resolve(users), delay)
+    todos = todos.filter(u => u.id !== id)
+    setTimeout(_=> resolve(todos), delay)
   })
   
 }
 
-export const updateUser = ({id, name}) => {
-  console.log('api updateUser', id, name);
+export const updateTodo = ({id, title}) => {
+  console.log('api updateTodo', id, title);
   return new Promise(resolve => {
-    const user = users.filter(u => u.id === id)[0]
-    if (!user) return Promise.reject(Error('no user'))
-    user.name = name 
-    setTimeout(_=> resolve(users), delay)
+    const todo = todos.filter(u => u.id === id)[0]
+    if (!todo) return Promise.reject(Error('no todo'))
+    todo.title = title 
+    setTimeout(_=> resolve(todos), delay)
   })
 }
