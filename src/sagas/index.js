@@ -1,27 +1,27 @@
 import {takeEvery, call, put} from 'redux-saga/effects'
 import {
-  FETCH_USER, RECEIVE_USER, REQEUST_USER, ADD_USER, EDIT_USER
+  FETCH_TODO, RECEIVE_TODO, REQEUST_TODO, ADD_TODO, EDIT_TODO
 } from '../reducers/todo'
 import * as api from '../api'
 
 function* takeFetchTodo() {
-  yield takeEvery(FETCH_USER, fetchTodoAsync)
+  yield takeEvery(FETCH_TODO, fetchTodoAsync)
 }
 function* fetchTodoAsync(action) {
-  yield put({type: REQEUST_USER})
+  yield put({type: REQEUST_TODO})
   const todos = yield call(api.fetchTodo)
-  yield put({type: RECEIVE_USER, todos})
+  yield put({type: RECEIVE_TODO, todos})
 }
 
 function* takeAddTodo() {
-  yield takeEvery(ADD_USER, function* (action) {
+  yield takeEvery(ADD_TODO, function* (action) {
     yield call(api.createTodo, {title: action.title})
     yield fetchTodoAsync()
   }) 
 }
 
 function* takeEditTodo() {
-  yield takeEvery(EDIT_USER, function* (action) {
+  yield takeEvery(EDIT_TODO, function* (action) {
     yield call(api.updateTodo, {...action.todo})
     yield fetchTodoAsync()
   }) 

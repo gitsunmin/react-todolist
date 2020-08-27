@@ -5,7 +5,7 @@ class Todo extends Component {
   static defaultProps = {
     data: {
       id: 0,
-      title: 'USER NAME',
+      title: 'TODO',
       onDelete: () => console.log('NOP'),
       onEdit: () => console.log('NOP'),
     }

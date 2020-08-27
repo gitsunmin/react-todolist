@@ -17,3 +17,9 @@
 .Header-menus li:last-child {
   margin-right: 0;
 }
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .Header-menus {
+    text-align: center;
+  }
+}
