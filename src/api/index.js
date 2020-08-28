@@ -16,7 +16,7 @@ export const fetchTodo = () => {
 
 export const createTodo = ({title}) => {
   console.log('api createTodo', title)
-  return db.table('todos').add({ title });
+  return db.table('todos').add({ title, isComplited: false, createdAt: new Date() });
   // return new Promise(resolve => {
   //   todos.push({
   //     id: todos[todos.length - 1].id + 1,
@@ -44,4 +44,10 @@ export const updateTodo = ({id, title}) => {
   //   todo.title = title 
   //   setTimeout(_=> resolve(todos), delay)
   // })
+}
+
+export const compliteTodo = ({id, isComplited}) => {
+  console.log('api compliteTodo', id, isComplited);
+  console.log('api compliteTodo type:', typeof isComplited);
+  return db.table('todos').update(id, { isComplited });
 }

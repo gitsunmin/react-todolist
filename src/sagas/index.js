@@ -1,6 +1,6 @@
 import {takeEvery, call, put} from 'redux-saga/effects'
 import {
-  FETCH_TODO, RECEIVE_TODO, REQEUST_TODO, ADD_TODO, EDIT_TODO
+  FETCH_TODO, RECEIVE_TODO, REQEUST_TODO, ADD_TODO, EDIT_TODO, COMPLITE_TODO
 } from '../reducers/todo'
 import * as api from '../api'
 
@@ -26,11 +26,18 @@ function* takeEditTodo() {
     yield fetchTodoAsync()
   }) 
 }
+function* taskCompliteTodo() {
+  yield takeEvery(COMPLITE_TODO, function* (action) {
+    yield call(api.compliteTodo, {...action.todo});
+    yield fetchTodoAsync();
+  });
+}
 
 export default function* rootSaga() {
   yield [
     takeFetchTodo(),
     takeAddTodo(),
-    takeEditTodo()
+    takeEditTodo(),
+    taskCompliteTodo(),
   ]
 }

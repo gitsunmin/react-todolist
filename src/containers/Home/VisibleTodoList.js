@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import TodoList from '../../components/Home/TodoList'
-import { setEditTodo, deleteTodo, fetchTodo } from '../../reducers/todo'
+import { setEditTodo, deleteTodo, fetchTodo, compiteTodo } from '../../reducers/todo'
 
 const mapStateToProps = state => {
   return {
@@ -13,6 +13,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onEdit: todo => dispatch(setEditTodo(true, todo)),
     onDelete: todo => dispatch(deleteTodo(todo)),
+    onComplite: todo => dispatch(compiteTodo(todo)),
     fetch: _=> dispatch(fetchTodo())
   }
 }
