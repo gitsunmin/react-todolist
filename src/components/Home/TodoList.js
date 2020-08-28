@@ -16,7 +16,6 @@ class TodoList extends React.Component {
   }
   onComplite = todo => {
     this.props.onComplite(todo);
-    console.log('todo:', todo);
   }
   render () {
     const {isFetching} = this.props

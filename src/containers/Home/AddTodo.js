@@ -20,7 +20,7 @@ class AddTodo extends React.Component {
     try {
       const { inputTitle } = this.state;
       this.validateTodo(inputTitle);
-      this.props.dispatch(addTodo(inputTitle))
+      this.props.dispatch(addTodo(inputTitle));
       this.setState({
         inputTitle: ''
       });
