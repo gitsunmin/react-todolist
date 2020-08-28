@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { compiteTodo } from '../../reducers/todo';
 import './Todo.css'
 
 class Todo extends Component {
@@ -35,7 +34,7 @@ class Todo extends Component {
     this.props.onComplite({ id: this.props.data.id, isComplited: value === 'false' });
   }
   render() {
-    const { title, isComplited } = this.props.data;
+    const { title } = this.props.data;
     return (
       <div className="Todo">
         {/* <div className="Todo-id">{id}</div> */}
