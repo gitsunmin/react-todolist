@@ -27,6 +27,7 @@ class CompletionList extends React.Component {
       <Todo
         data={todo}
         key={todo.id}
+        mode="completion"
         onEdit={this.onEdit}
         onDelete={this.onDelete}
         onComplite={this.onComplite}

@@ -23,6 +23,7 @@ class TodoList extends React.Component {
       <Todo
         data={todo}
         key={todo.id}
+        mode="todo"
         onEdit={this.onEdit} 
         onDelete={this.onDelete}
         onComplite={this.onComplite}
@@ -31,6 +32,7 @@ class TodoList extends React.Component {
     return (
       <div style={this.style}>
         {list}
+        {!list.length && '할일이 없습니다!!'}
         {isFetching ? 'Loading...' : ''}
       </div>
     )

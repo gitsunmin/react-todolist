@@ -34,7 +34,7 @@ class Todo extends Component {
     this.props.onComplite({ id: this.props.data.id, isComplited: value === 'false' });
   }
   render() {
-    const { title } = this.props.data;
+    const { data: { title }, mode } = this.props;
     return (
       <div className="Todo">
         {/* <div className="Todo-id">{id}</div> */}
@@ -49,7 +49,7 @@ class Todo extends Component {
                 onChange={this.onComplite}
               />
             </li>
-            <li><button onClick={this.onEdit}>수정</button></li>
+            {mode === 'todo' && <li><button onClick={this.onEdit}>수정</button></li>}
             <li><button onClick={this.onDelete}>삭제</button></li>
           </ul>
         </div>
